@@ -26,6 +26,19 @@
 
 <body>
 
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Entrega P2</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a th:href="@{/}">Pagina principal</a></li>
+				<li class="active"><a th:href="@{/formulario}">Formulario</a></li>
+				<li><a th:href="@{/CGC}">Calculador de grasa corporal</a></li>
+			</ul>
+		</div>
+	</nav>
+
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
@@ -67,13 +80,14 @@
 				<dl>
 					<dt>Nivel de estudios</dt>
 					<dd th:text="${estudios}"></dd>
-					
-					<br><br>
-					
+
+					<br>
+					<br>
+
 					<dt>Intereses</dt>
 					<dd th:each="interes: ${intereses}" th:text="${interes}"></dd>
 
-					
+
 				</dl>
 			</div>
 		</div>

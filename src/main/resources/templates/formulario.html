@@ -24,6 +24,20 @@
 </head>
 
 <body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Entrega P2</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a th:href="@{/}">Pagina principal</a></li>
+				<li class="active"><a th:href="@{/formulario}">Formulario</a></li>
+				<li><a th:href="@{/CGC}">Calculador de grasa corporal</a></li>
+			</ul>
+		</div>
+	</nav>
+
 	<form th:action="@{/formulario}" method="post" class="form-horizontal">
 		<fieldset>
 
@@ -96,7 +110,7 @@
 					</div>
 					<div class="radio">
 						<label for="sexo-1"> <input type="radio" name="sexo"
-							id="sexo-1" value="m"> Mujer
+							id="sexo-1" value="m" checked="checked"> Mujer
 						</label>
 					</div>
 				</div>
@@ -186,7 +200,8 @@
 					</div>
 					<div class="checkbox">
 						<label for="intereses-1"> <input type="checkbox"
-							name="intereses" id="intereses-1" value="Deportes"> Deportes
+							name="intereses" id="intereses-1" value="Deportes">
+							Deportes
 						</label>
 					</div>
 					<div class="checkbox">
@@ -201,7 +216,8 @@
 					</div>
 					<div class="checkbox">
 						<label for="intereses-4"> <input type="checkbox"
-							name="intereses" id="intereses-4" value="Ciencia"> Ciencia
+							name="intereses" id="intereses-4" value="Ciencia">
+							Ciencia
 						</label>
 					</div>
 				</div>
