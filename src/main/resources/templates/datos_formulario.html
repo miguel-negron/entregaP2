@@ -62,10 +62,10 @@
 					<dd th:text="${nacimiento}"></dd>
 
 					<dt>Email</dt>
-					<dd th:text="${email}"></dd>
+					<dd th:text="${email}"> <br></dd>
 
 					<dt>Sexo</dt>
-					<dd th:text="${sexo}"></dd>
+					<dd th:text="${sexo == 'm'}? 'Mujer' : 'Varón'"></dd>
 
 					<dt>Contraseña</dt>
 					<dd th:text="${pwd}"></dd>
@@ -94,7 +94,7 @@
 	</div>
 
 
-	<!--     XXX        MODIDAS DE BOOTSTRAP       XXX        -->
+	<!--     XXX        MOVIDAS DE BOOTSTRAP       XXX        -->
 
 	<!-- /.container -->
 

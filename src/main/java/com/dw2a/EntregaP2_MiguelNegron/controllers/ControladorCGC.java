@@ -18,18 +18,49 @@ public class ControladorCGC {
 	public String CGCresultados(Model modelo, @RequestParam int edad, @RequestParam double altura,
 			@RequestParam double peso, @RequestParam String sexo) {
 		double imc = 0;
-		double igc = 0;
+		double gc = 0;
+		double isVaron = sexo.equals("v") ? 1 : 0;
+		int sector = 0;
 		  
 		
-		imc = peso / altura * altura;
+		
+		imc = peso / (altura * altura);
+		
+		gc = 1.2 * imc + 0.23 * edad - 10.8 * isVaron - 5.4;
 		
 		if (sexo.equals("m")) {
-			igc = 1.2 * imc + 0.23 * edad - 10.8 * 1 - 5.4;
+			if (gc <= 13) {
+				sector = 1;
+			} else if (gc <= 20) {
+				sector = 2;
+			} else if (gc <= 24) {
+				sector = 3;
+			} else if (gc <= 31) {
+				sector = 4;
+			} else {
+				sector = 5;
+			}
 		} else {
-			igc = 1.2 * imc + 0.23 * edad - 10.8 * 0 - 5.4;
+			if (gc <= 5) {
+				sector = 1;
+			} else if (gc <= 13) {
+				sector = 2;
+			} else if (gc <= 17) {
+				sector = 3;
+			} else if (gc <= 24) {
+				sector = 4;
+			} else {
+				sector = 5;
+			}
 		}
 		
-		modelo.addAttribute("gc", igc);
+		
+		modelo.addAttribute("gc", String.format("%.2f", gc));
+		modelo.addAttribute("edad", edad);
+		modelo.addAttribute("altura", altura);
+		modelo.addAttribute("peso", peso);
+		modelo.addAttribute("sexo", sexo);
+		modelo.addAttribute("sector", sector);
 		
 		return "CGC";
 	}
